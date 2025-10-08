@@ -8,7 +8,8 @@ mysql> CREATE TABLE departments (
 
 
 #Q2
-mysql> SELECT * FROM people INNER JOIN departments ON people.person_id = departments.department_id;
+mysql> ALTER TABLE people
+    -> ADD COLUMN department_id INT(10) UNSIGNED AFTER email;
 
 
 #Q3
@@ -73,7 +74,7 @@ mysql> SELECT name, age
 	1	SELECT name, email, age → peopleテーブルの中から name、email、ageカラム を取得します。カラムとは、テーブル内の特定の情報の種類を指します。
 	2	FROM people → どのテーブルからデータを取得するかを指定します。ここでは peopleテーブル です。テーブルとは、データベース内のデータの集合のことです。
 	3	WHERE department_id = 1 → department_idカラム の値が 1 の レコード のみを取得します。レコードとは、テーブルの中の1行、つまり1人分のデータのことです。
-	4	ORDER BY created_a → 取得したレコードを created_atカラム の値順に並べます。デフォルトでは昇順（古い順）です。
+	4	ORDER BY created_at → 取得したレコードを created_atカラム の値順に並べます。デフォルトでは昇順（古い順）です。
 
 まとめると：
 「peopleテーブルの中で、department_idが1のレコードを探して、name、email、ageカラムの情報を取得し、created_atカラム順に並べるクエリ」です。
